@@ -17,6 +17,7 @@ For the range class we can analyse the mutations in the method getLength().
 
 ![image](https://user-images.githubusercontent.com/101444825/226063278-20fa3bff-8459-467c-89ed-a14f4c6b7af0.png)
 
+
 ![image](https://user-images.githubusercontent.com/101444825/226063365-fd610470-e055-427e-83ea-2dd54b610711.png)
 
 In this mutation, subtraction was replaced with addition. The mutation is killed since using addition instead of subtraction would result in the expected value being different than the actual.
