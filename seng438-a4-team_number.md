@@ -14,49 +14,61 @@ In this lab, we aim to test software through the utilisation of two testing tech
 
 # Analysis of 10 Mutants of the Range class 
 For the range class we can analyse the mutations in the method getLength(). 
+
 ![image](https://user-images.githubusercontent.com/101444825/226063278-20fa3bff-8459-467c-89ed-a14f4c6b7af0.png)
 
 ![image](https://user-images.githubusercontent.com/101444825/226063365-fd610470-e055-427e-83ea-2dd54b610711.png)
+
 In this mutation, subtraction was replaced with addition. The mutation is killed since using addition instead of subtraction would result in the expected value being different than the actual.
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063531-c4dbe358-331d-45bb-b130-de4b085a2da9.png)
+
 In this mutation, the upper bound value was negated. The method would then be -upper - lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063568-aff769f8-8182-4cde-ae3a-23b56d9859be.png)
+
 In this mutation, the lower bound value was negated. The method would then be upper + lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063593-c69a474c-5649-480d-abe9-9068b1b0de75.png)
+
 In this mutation, the double operation is replaced with the first member. This would result with a return of the upper boundary value member instead of the difference between upper and lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063619-8ce79194-ec1c-4fbf-870d-f3261f3fcfe5.png)
+
 In this mutation, the double operation is replaced with the second member. This would result with a return of the lower boundary value member instead of the difference between upper and lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063647-110eda6b-b41a-4625-a2aa-9a22f2c7b0e0.png)
+
 In this mutation, the subtraction of the two doubles is replaced with multiplication. This would result in a different value than expected. Since the expected and actual values are not the same, the mutation is killed.
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063670-08c7621b-f02f-4bdb-89c1-91c8448db79b.png)
+
 In this mutation, the upper bound value is incremented. This would result in the upper variable being used in the calculation before being incremented which would result in the same value. Since this mutation does not cause a failure in our test suite, the mutation survives. 
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063691-9bcc068f-2e59-4ffa-ab1a-70f15cacce3b.png)
+
 In this mutation, the lower bound value is incremented. This would result in the lower variable being used in the calculation before being incremented which would result in the same value. Since this mutation does not cause a failure in our test suite, the mutation survives. 
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063708-a2dfb94c-fa2a-4778-bcce-0a5f541cbf0c.png)
+
 In this mutation, the upper bound value is incremented. This would result in the upper variable being used in the calculation after being incremented which would result in a different value than expected. Since this mutation causes a failure in our test suite, the mutation is killed. 
 
 
 ![image](https://user-images.githubusercontent.com/101444825/226063725-e58c3d22-2438-4cce-af2d-bb679e81da79.png)
+
 In this mutation, the lower bound value is incremented. This would result in the lower variable being used in the calculation after being incremented which would result in a different value than expected. Since this mutation causes a failure in our test suite, the mutation is killed.
 
 
 # Report all the statistics and the mutation score for each test class
+
 ![image](https://user-images.githubusercontent.com/101444825/226063780-433b319e-f233-4f56-abf2-be8f8122e658.png)
 
 ![image](https://user-images.githubusercontent.com/101444825/226063825-191911bc-e556-449f-b642-b8196060eb63.png)
