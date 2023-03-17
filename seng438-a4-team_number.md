@@ -2,41 +2,182 @@
 
 **Lab. Report \#4 – Mutation Testing and Web app testing**
 
-| Group \#:      |     |
+| Group \#21:      |     |
 | -------------- | --- |
-| Student Names: |     |
-|                |     |
-|                |     |
-|                |     |
+| Student Names: | Tony Tan |
+|                | Evan Wong |
+|                | Johnny Yuen |
+|                | Bryant Zhang |
 
 # Introduction
-
+In this lab, we aim to test software through the utilisation of two testing techniques, Mutation Testing and GUI Testing. We will conduct Mutation Testing by utilising the Pitest software to introduce defects into the software and measure our mutation score based on our unit tests. By analysing the results of the Mutation Testing, we can improve our mutation score by identifying and eliminating the mutants that were not previously caught by our previous tests. For GUI Testing, we will use Selenium and Sikulix software to develop test cases to evaluate particular functionalities of online websites (Costco page, Amazon Page or IKEA Page). These two techniques and software tools can assist us in recording and automating GUI testing.
 
 # Analysis of 10 Mutants of the Range class 
+For the range class we can analyse the mutations in the method getLength(). 
+![image](https://user-images.githubusercontent.com/101444825/226063278-20fa3bff-8459-467c-89ed-a14f4c6b7af0.png)
+
+![image](https://user-images.githubusercontent.com/101444825/226063365-fd610470-e055-427e-83ea-2dd54b610711.png)
+In this mutation, subtraction was replaced with addition. The mutation is killed since using addition instead of subtraction would result in the expected value being different than the actual.
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063531-c4dbe358-331d-45bb-b130-de4b085a2da9.png)
+In this mutation, the upper bound value was negated. The method would then be -upper - lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063568-aff769f8-8182-4cde-ae3a-23b56d9859be.png)
+In this mutation, the lower bound value was negated. The method would then be upper + lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063593-c69a474c-5649-480d-abe9-9068b1b0de75.png)
+In this mutation, the double operation is replaced with the first member. This would result with a return of the upper boundary value member instead of the difference between upper and lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063619-8ce79194-ec1c-4fbf-870d-f3261f3fcfe5.png)
+In this mutation, the double operation is replaced with the second member. This would result with a return of the lower boundary value member instead of the difference between upper and lower. Since this would result in the actual value differing from the expected value, the mutation is killed.
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063647-110eda6b-b41a-4625-a2aa-9a22f2c7b0e0.png)
+In this mutation, the subtraction of the two doubles is replaced with multiplication. This would result in a different value than expected. Since the expected and actual values are not the same, the mutation is killed.
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063670-08c7621b-f02f-4bdb-89c1-91c8448db79b.png)
+In this mutation, the upper bound value is incremented. This would result in the upper variable being used in the calculation before being incremented which would result in the same value. Since this mutation does not cause a failure in our test suite, the mutation survives. 
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063691-9bcc068f-2e59-4ffa-ab1a-70f15cacce3b.png)
+In this mutation, the lower bound value is incremented. This would result in the lower variable being used in the calculation before being incremented which would result in the same value. Since this mutation does not cause a failure in our test suite, the mutation survives. 
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063708-a2dfb94c-fa2a-4778-bcce-0a5f541cbf0c.png)
+In this mutation, the upper bound value is incremented. This would result in the upper variable being used in the calculation after being incremented which would result in a different value than expected. Since this mutation causes a failure in our test suite, the mutation is killed. 
+
+
+![image](https://user-images.githubusercontent.com/101444825/226063725-e58c3d22-2438-4cce-af2d-bb679e81da79.png)
+In this mutation, the lower bound value is incremented. This would result in the lower variable being used in the calculation after being incremented which would result in a different value than expected. Since this mutation causes a failure in our test suite, the mutation is killed.
+
 
 # Report all the statistics and the mutation score for each test class
+![image](https://user-images.githubusercontent.com/101444825/226063780-433b319e-f233-4f56-abf2-be8f8122e658.png)
+
+![image](https://user-images.githubusercontent.com/101444825/226063825-191911bc-e556-449f-b642-b8196060eb63.png)
 
 
 
 # Analysis drawn on the effectiveness of each of the test classes
+Initially, the test suite we created in assignment 3 for DataUtilities had 55% mutation coverage and 69% line coverage with a test strength of 82%. This tells us that our test suite was quite strong but the line coverage and mutation coverage could still be increased.
+
+The test suites created for Range in assignment 3 had the line coverage of 70%, a mutation coverage of 22%, and a test strength of 32%. We concluded that our original test suits was weak and had low mutation coverage and test strength although we had decent line coverage, which allowed us to increase them.
+
 
 # A discussion on the effect of equivalent mutants on mutation score accuracy
+Equivalent mutants are mutations that produce the same behaviour in the overall functionality of the code. Equivalent mutants can have a large effect on mutation score accuracy as they are syntactically different but semantically equivalent to the original program. Therefore, equivalent mutants will appear as faults in the source code and lower the mutation accuracy score. One example of an equivalent mutant is using != instead of relational operators such as > or < in a for loop. An example of an equivalent mutant in DataUtilities can be seen on Line 104 in Mutation 15 where < is replaced with !=, resulting in a surviving mutation. 
 
 # A discussion of what could have been done to improve the mutation score of the test suites
+In order to improve the mutation score is to increase the test coverage. This means adding more test cases to cover different scenarios and edge cases that might not have been tested before.  By adding more test cases we can improve the mutation score. Another way in order to improve the mutation score of the test suites we could increment or decrement the numbers of one more or one less. By creating test cases which account for this range of one more or less, we could improve our mutation score.
 
 # Why do we need mutation testing? Advantages and disadvantages of mutation testing
+Mutation testing is important as it checks through source code to analyse if the test cases can detect mutations. Mutation testing measures the effectiveness of a test suite and helps us improve the quality of our test cases.
+Advantages:
+Fault-based as opposed to coverage-based (black box, white box testing)
+Good for identifying small errors in the code
+Identifies missing test cases through mutations that are not covered
+Provides a measure of the effectiveness of a test suite
+Disadvantages:
+Time consuming to run mutation test
+Requires a high understanding of source code to make adjustments to the test suite to kill mutations
+May not identify all faults
+
 
 # Explain your SELENUIM test case design process
+Our Selenium test case design process was focused around making sure a lot of the main functionality of the website in this case costco was being tested. So we came up with a list of the most important features from a consumer’s standpoint to test to allow us to narrow down the amount of test cases we would have to do while being able to cover what was high up on the functionalities list. Once we identified what functionalities were most important and were being tested, we thought of specific scenarios in each functionality to test multiple different data inputs. After this we started on the design of the actual test cases within Selenium, we made sure that steps and recordings within Selenium were clearly defined and had a clear goal/objective in mind. We had made sure that the expected outcome was present when conducting our tests and automated our tests. Afterwards we all repeated the tests multiple times and analysed the results to make sure they were consistent. We chose Costco as our website of choice for the testing in this lab.
 
 # Explain the use of assertions and checkpoints
+Script #1 - Search for Chicken: Used an “assert element present” as a verification point with the target xpath=//*[@id="rsltCntMsg"] to check if the search results were actually searching for “Chicken”
+
+Script #2 - Search for Tupperware: Used an “assert element present” as a verification point with the target xpath=//*[@id="rsltCntMsg"] to check if the search results were actually searching for “Tupperware”
+
+Script #3 - Search for Clothes: Used an “assert element present” as a verification point with the target xpath=//*[@id="rsltCntMsg"] to check if the search results were actually searching for “Clothes”
+
+Script #4 - Login Invalid: Used an “assert element present” and “assert text” as verification points with the targets xpath=//*[@id="localAccountForm"]/div[2]/p, and xpath=//*[@id="localAccountForm"]/div[2]/p matching with text shown respectively to see if error messages were popping up correctly.
+There was a defect in this function as in the “assert text” the actual displayed text was different from what the html wanted to display. It wanted to display “We can’t seem to find your account” but instead displayed “The email address and/or password you entered are invalid.”
+
+Script #5 - Login Valid: Used an “assert text” as a verification point with the target xpath=//*[@id="leftNavA"]/div/div/div/div/div/div[1]/h2 in the account page to match text in the account page to make sure the account was logged in, and valid.
+
+Script #6 - Add to Cart Computer: Used an “assert element present” as a verification point with the target xpath=//*[@id="item-in-cart-0"] to make sure that the items were getting put in the cart correctly.
+
+Script #7 - Add to Cart Food: Used an “assert element present” as a verification point with the target xpath=//*[@id="item-in-cart-0"] to make sure that the items were getting put in the cart correctly.
+Script #8 - Verify Menu Buttons (Jobs): Used an “assert text” as a verification point with the target xpath=//*[@id="career-lp"]/section[1]/div/a/button to make sure that when redirected to the jobs page the application button was correctly displayed.
+
+Script #9 - Verify Menu Buttons (Renew Membership) Used an “assert text” as a verification point with the target xpath=//*[@id="AddMembershipForm"]/div[1]/div/div/label to make sure that when redirected to the renewal page the renewal fill in field was displayed.
+
+Script #10 - Verifying Costco Logo (After Search): Used an “assert element present” as a verification point with the target xpath=//*[@id="header-widget"]/div[2]/div/div/div/div[1]/a/img to make sure that the logo was displayed after a search.
+
+Script #11 - Verifying Costco Logo (Homepage): Used an “assert element present” as a verification point with the target xpath=//*[@id="header-widget"]/div[2]/div/div/div/div[1]/a/img to make sure that the logo was displayed after a search.
+
+Script #12 - Testing checking out with invalid credentials: Used an “assert element present” as a verification point with the target xpath=//*[@id="link-membership-interrupt"]/div[1]/div/h1 to make sure that the logged in user had a membership, and if not it redirected them into a renewal or purchase page.
+There was a defect here as if you ran the code without a time delay it would not click the checkout button, as the page needed extra time after loading to input a zip code.
+
+Script #13 - Getting past registration invalid info: Used multiple “assert text”s as a verification point with the target xpath=//*[@id="dob_error"] and xpath=//*[@id="primary-membership-block"]/div/div[2]/fieldset/div[9]/div/label[2] to make sure that if invalid info was put in it would state that valid info would need to be re-inputted.
+
+Script #14 - Getting past registration valid info: Used a “assert text” as a verification point with the target xpath=//*[@id="membership-terms-div"]/div/div/h1 to make sure that it went to the policy page after valid info was inputted.
+
+Script #15 - Buying membership invalid: Used the test in script#14, and then used another “assert text” with the target xpath=//*[@id="account_validator_err_msg"] in order to test invalid inputted credentials when checking out for a membership.
+There was a defect here as if you ran the code without a time delay it would not click the drop down menu for paying with a card it would just freeze.
+
+Overall we used checkpoints and assertions in order to verify that outputs of the tests are functioning correctly in the application under test.
+
 
 # how did you test each functionaity with different test data
+Search Function
+Script #1 - Search for Chicken 
+Script #2 - Search for Tupperware 
+Script #3 - Search for Clothes
+
+Login Function
+Script #4 - Login Invalid
+Script #5 - Login Valid
+
+Cart Function
+Script #6 - Add to Cart Computer
+Script #7 - Add to Cart Food
+
+Bottom Menu Button Functions
+Script #8 - Verify Menu Buttons (Jobs)
+Script #9 - Verify Menu Buttons (Renew Membership)
+
+Correct Logo Placement
+Script #10 - Verifying Costco Logo (After Search)
+Script #11 - Verifying Costco Logo (Homepage)
+
+Testing checkout function - Different test data was not used here because none of us have/are comfortable with inputting our personal costco info with a valid membership into the testing.
+Script #12 - Testing checking out with invalid credentials
+Would be script - Testing checking out with valid credentials
+
+Testing registration for a membership function
+Script #13 - Getting past registration invalid info
+Script #14 - Getting past registration valid info
+
+Testing buying a membership function - Different test data was not used because if there was valid data inputted into buying the membership, we would actually have to pay for a membership everytime the test was run.
+Script #15 - Buying membership invalid
+Would be script - Buying membership with valid credentials
+
 
 # Discuss advantages and disadvantages of Selenium vs. Sikulix
+The advantages of Selenium is that Selenium is very popular and widely used so there are many resources that can be found in order to help with the usage of Selenium. Also Selenium can be used as an extension to many other programming languages such as python or java, so it can be coded on and worked with inside of python or java programs. It allows for easy use of automation and testing on many different browsers and web-applications. As well as having assertions and verification checkpoints.
+
+The disadvantages of Selenium is that with complex or large tests or applications it becomes exponentially harder to create and run. Another disadvantage is that Selenium can only be used on web-applications so it cannot be used to test non web applications, so when non browser pop-ups occur it cannot deal with that. Setting up tests with Selenium can also be time consuming based on what the objective of the test was.
+
+The advantages of Sikulix is that it’s very user-friendly and easy to use so it doesn’t require an extensive amount of knowledge in order to start with it. It can be used to automate testing on more than just web-applications and can integrate well with JUnit and other testing frameworks. Finally Sikulix uses image recognition in order to automate its testing so its adaptability and usability is good for any application.
+
+The disadvantages of Sikulix is that it doesn’t work as well as Selenium on web-based applications, so if the primary focus is on web-based applications then Sikulix does not stand up to Selenium in terms of efficiency and usability. Sikulix requires carefully procured images to make sure that the test cases are consistent and accurate. Sikulix can also be time consuming as well as slow when compared to other testing tools.
+
 
 # How the team work/effort was divided and managed
-
+Our team was divided into two pairs and tasks were assigned equally with a predefined timeline. Peer programming was employed as a collaborative technique to improve efficiency between the team and reduce errors while developing the test suite code. Once the two parts were completed, we combined the work and performed group testing to ensure the proper functioning of the code.
 
 # Difficulties encountered, challenges overcome, and lessons learned
+Some difficulties we encountered during this lab was the initial setup of the SUT and importing of reference libraries. In addition, during mutation testing we would have to wait for long periods of time between the tests as it took a significant amount of time to finish each mutation test. It would also often freeze the eclipse IDE and utilise a large amount of CPU usage on the device that was running it. As such, we learned that mutation testing is time consuming and requires high maintenance in order to get working correctly.
+
 
 # Comments/feedback on the lab itself
+This lab was difficult to set up since some of the instructions were not very clear and required library files from the previous lab without informing us. Additionally, running the mutation tests was very time consuming. Once we resolved all the problems, we were able to improve the quality of our test suite with mutation testing and increase our understanding of mutations.
